@@ -68,3 +68,16 @@ Route::get('check',function (){
    return 'middleware';
 })->middleware('auth');
 
+Route::get('second',[App\Http\Controllers\Admin\SecondController::class,'showString']);
+
+Route::middleware('auth')->group(function (){
+    Route::get('second',[App\Http\Controllers\Admin\SecondController::class,'showString']);
+    Route::get('third',[App\Http\Controllers\Admin\SecondController::class,'showString']);
+});
+
+Route::get('second',[App\Http\Controllers\Admin\SecondController::class,'showString0'])->middleware('auth');
+Route::get('second1',[App\Http\Controllers\Admin\SecondController::class,'showString1']);
+Route::get('second2',[App\Http\Controllers\Admin\SecondController::class,'showString2']);
+Route::get('second3',[App\Http\Controllers\Admin\SecondController::class,'showString3']);
+
+
