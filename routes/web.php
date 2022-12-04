@@ -80,4 +80,16 @@ Route::get('second1',[App\Http\Controllers\Admin\SecondController::class,'showSt
 Route::get('second2',[App\Http\Controllers\Admin\SecondController::class,'showString2']);
 Route::get('second3',[App\Http\Controllers\Admin\SecondController::class,'showString3']);
 
+Route::resource('news',[App\Http\Controllers\Admin\NewsController::class]);
+
+/*
+ * Route::get('news',[App\Http\Controllers\Admin\NewsController::class,'index']);
+ * Route::post('news',[App\Http\Controllers\Admin\NewsController::class,'store']);
+ * Route::get('news/create',[App\Http\Controllers\Admin\NewsController::class,'create']);
+ * Route::get('news{id}/edit',[App\Http\Controllers\Admin\NewsController::class,'edit']);
+ * Route::post('news/{id}',[App\Http\Controllers\Admin\NewsController::class,'update']);
+ * Route::delete('news/{id}',[App\Http\Controllers\Admin\NewsController::class,'delete']);
+ * */
+
+//php artisan ser --port = 8001
 
