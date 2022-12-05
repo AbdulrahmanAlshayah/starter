@@ -80,7 +80,7 @@ Route::get('second1',[App\Http\Controllers\Admin\SecondController::class,'showSt
 Route::get('second2',[App\Http\Controllers\Admin\SecondController::class,'showString2']);
 Route::get('second3',[App\Http\Controllers\Admin\SecondController::class,'showString3']);
 
-Route::resource('news',[App\Http\Controllers\Admin\NewsController::class]);
+//Route::resource('news',[App\Http\Controllers\Admin\NewsController::class]);
 
 /*
  * Route::get('news',[App\Http\Controllers\Admin\NewsController::class,'index']);
