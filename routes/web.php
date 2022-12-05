@@ -93,3 +93,6 @@ Route::get('second3',[App\Http\Controllers\Admin\SecondController::class,'showSt
 
 //php artisan ser --port = 8001
 
+Route::get('/index',function (){
+    return view('layouts.app');
+});
