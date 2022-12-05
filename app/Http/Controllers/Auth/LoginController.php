@@ -37,4 +37,10 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    //اذا بدك تعمل تسجيل الدخول بالموبايل بس بدك تضيف حقل بال داتابيز وبالفورم تعدل الأسماء و الموديل تعدل فيه
+    public function username()
+    {
+        return 'mobile';
+    }
 }
