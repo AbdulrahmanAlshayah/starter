@@ -25,3 +25,7 @@ Auth::routes(['verify'=>true]);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('verified');
 
 Route::get('fillable',[CrudController::class,'getOffers']);
+
+Route::group(['prefix' => 'offers'],function(){
+    Route::get('store',[CrudController::class,'store']);
+});
