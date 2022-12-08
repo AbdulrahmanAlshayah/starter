@@ -12,5 +12,5 @@ class ofer extends Model
     protected $table = "ofers";
     protected $fillable = ['name','price','details','created_at','updated_at'];
     protected $hidden = ['created_at','updated_at'];
-    public $timestamps = false;
+    //public $timestamps = true;
 }

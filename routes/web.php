@@ -27,5 +27,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('fillable',[CrudController::class,'getOffers']);
 
 Route::group(['prefix' => 'offers'],function(){
-    Route::get('store',[CrudController::class,'store']);
+    Route::get('create',[CrudController::class,'create']);
+    Route::post('store',[CrudController::class,'store'])->name('offers.store');
 });
