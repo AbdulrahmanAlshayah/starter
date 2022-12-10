@@ -26,7 +26,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('fillable',[CrudController::class,'getOffers']);
 
-Route::group(['prefix' => 'offers'],function(){
-    Route::get('create',[CrudController::class,'create']);
-    Route::post('store',[CrudController::class,'store'])->name('offers.store');
+Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]],function (){
+
+    Route::group(['prefix' => 'offers'],function(){
+        Route::get('create',[CrudController::class,'create']);
+        Route::post('store',[CrudController::class,'store'])->name('offers.store');
+    });
+
 });

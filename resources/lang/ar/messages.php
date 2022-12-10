@@ -16,6 +16,8 @@ return [
     'hello gus' => 'أهلا بكم',
     'welcome' => 'أهلا',
     'offer name required' => 'اسم العرض مطلوب',
-    'offer name must be unique' =>'اسم العرض يجب ألا يتكرر'
+    'offer name must be unique' =>'اسم العرض يجب ألا يتكرر',
+    'pricerequired' => 'السعر مطلوب',
+    'Add your offer' => 'أضف عرضك'
 
 ];

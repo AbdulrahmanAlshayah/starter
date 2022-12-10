@@ -58,7 +58,7 @@ class CrudController extends Controller
             'name.required' => __('messages.offer name required'),
             'name.unique' => __('messages.offer name must be unique'),
             'price.numeric' => 'سعر العرض يجب أن يكون أرقام',
-            'price.required' => 'السعر مطلوب',
+            'price.required' => trans('messages.pricerequired'),
             'details.required' => 'التفاصيل مطلوبة',
         ];
     }
