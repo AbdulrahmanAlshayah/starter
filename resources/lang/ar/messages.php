@@ -18,6 +18,11 @@ return [
     'offer name required' => 'اسم العرض مطلوب',
     'offer name must be unique' =>'اسم العرض يجب ألا يتكرر',
     'pricerequired' => 'السعر مطلوب',
-    'Add your offer' => 'أضف عرضك'
+    'Add your offer' => 'أضف عرضك',
+    'Offer Name ar' => 'اسم العرض بالعربي',
+    'Offer Name en' => 'اسم العرض بالانجليزي',
+    'Offer price' => 'سعر العرض',
+    'Offer details ar' => 'تفاصيل العرض بالعربي',
+    'Offer details en' => 'تفاصيل العرض بالأنجليزي',
 
 ];

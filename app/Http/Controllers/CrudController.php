@@ -37,9 +37,11 @@ class CrudController extends Controller
 //            return redirect()->back()->withErrors($validator)->withInput($request->all());
 //        }
         ofer::create([
-            'name' => $request -> name,
+            'name_ar' => $request -> name_ar,
+            'name_en' => $request -> name_en,
             'price' => $request -> price,
-            'details' => $request -> details,
+            'details_ar' => $request -> details_ar,
+            'details_en' => $request -> details_en,
         ]);
         //return redirect()->to('');
         return redirect()->back()->with(['success' => 'تم إضافة العرض بنجاح']);
@@ -63,4 +65,10 @@ class CrudController extends Controller
 //            'details.required' => 'التفاصيل مطلوبة',
 //        ];
 //    }
+
+    public function getAllOffers(){
+        $offers = ofer::select('id','name','price','details')->get();
+        return view('offer.all',compact('offers'));
+    }
+
 }
