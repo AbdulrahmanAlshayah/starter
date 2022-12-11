@@ -24,5 +24,8 @@ return [
     'Offer price' => 'سعر العرض',
     'Offer details ar' => 'تفاصيل العرض بالعربي',
     'Offer details en' => 'تفاصيل العرض بالأنجليزي',
+    'Offer Name' => 'اسم العرض بالعربي',
+    'Offer details' => 'تفاصيل العرض بالعربي',
+
 
 ];

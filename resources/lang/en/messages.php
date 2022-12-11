@@ -24,4 +24,8 @@ return [
     'Offer price' => 'Offer Price',
     'Offer details ar' => 'Offer details arabic',
     'Offer details en' => 'Offer details english',
+    'Offer Name' => 'Offer Name',
+    'Offer details' => 'Offer details',
+
+
 ];
