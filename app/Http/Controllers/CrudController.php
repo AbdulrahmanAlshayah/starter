@@ -37,7 +37,17 @@ class CrudController extends Controller
 //            //return $validator->errors();
 //            return redirect()->back()->withErrors($validator)->withInput($request->all());
 //        }
+
+
+        //save photo in folder
+        $file_extension = $request -> photo -> getClientOriginalExtension();
+
+        $file_name = time(). '.'.$file_extension;
+        $path = 'images/offers';
+        $request -> photo -> move($path,$file_name);
+
         ofer::create([
+            'photo' => $file_name,
             'name_ar' => $request -> name_ar,
             'name_en' => $request -> name_en,
             'price' => $request -> price,
@@ -99,7 +109,7 @@ class CrudController extends Controller
             return redirect()->back();
 
         //update data
-        
+
 
         $offer->update($request->all());
 
