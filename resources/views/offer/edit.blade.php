@@ -74,7 +74,6 @@
 </head>
 <body>
 
-
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">Navbar</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -104,68 +103,68 @@
 <div class="flex-center position-ref full-height">
     <div class="content">
         <div class="title m-b-md">
-            {{__('messages.Add your offer')}}
+            {{__('messages.edit your offer')}}
+
         </div>
+        '
         @if(Session::has('success'))
             <div class="alert alert-success" role="alert">
                 {{ Session::get('success') }}
             </div>
         @endif
 
-         <form method="POST" action="{{route('offers.store')}}" enctype="multipart/form-data">
+        <br>
+        <form method="POST" action="{{route('offers.update',$offer -> id)}}" enctype="multipart/form-data">
             @csrf
             {{-- <input name="_token" value="{{csrf_token()}}"> --}}
 
-              <div class="form-group">
-                <label for="exampleInputEmail1">أختر صوره العرض</label>
-                <input type="file" class="form-control" name="photo">
-                @error('photo')
-                <small class="form-text text-danger">{{$message}}</small>
-                @enderror
-            </div>
 
 
             <div class="form-group">
                 <label for="exampleInputEmail1">{{__('messages.Offer Name ar')}}</label>
-                <input type="text" class="form-control" name="name_ar" placeholder="{{__('messages.Offer Name ar')}}">
+                <input type="text" class="form-control" name="name_ar" value="{{$offer -> name_ar}}" placeholder="{{__('messages.Offer Name')}}">
                 @error('name_ar')
                 <small class="form-text text-danger">{{$message}}</small>
                 @enderror
             </div>
-             <div class="form-group">
+
+
+            <div class="form-group">
                 <label for="exampleInputEmail1">{{__('messages.Offer Name en')}}</label>
-                <input type="text" class="form-control" name="name_en" placeholder="{{__('messages.Offer Name en')}}">
+                <input type="text" class="form-control" name="name_en" value="{{$offer -> name_en}}" placeholder="{{__('messages.Offer Name')}}">
                 @error('name_en')
                 <small class="form-text text-danger">{{$message}}</small>
                 @enderror
             </div>
+
             <div class="form-group">
-                <label for="exampleInputPassword1">{{__('messages.Offer price')}}</label>
-                <input type="text" class="form-control" name="price" placeholder="{{__('messages.Offer price')}}">
+                <label for="exampleInputPassword1">{{__('messages.offer price')}}</label>
+                <input type="text" class="form-control" name="price" value="{{$offer -> price}}" placeholder="{{__('messages.Offer Price')}}">
                 @error('price')
                 <small class="form-text text-danger">{{$message}}</small>
                 @enderror
             </div>
+
             <div class="form-group">
                 <label for="exampleInputPassword1">{{__('messages.Offer details ar')}}</label>
-                <input type="text" class="form-control" name="details_ar" placeholder="{{__('messages.Offer details ar')}}">
+                <input type="text" class="form-control" name="details_ar" value="{{$offer -> details_ar}}"
+                       placeholder="{{__('messages.Offer details')}}">
                 @error('details_ar')
                 <small class="form-text text-danger">{{$message}}</small>
                 @enderror
             </div>
-             <div class="form-group">
+
+            <div class="form-group">
                 <label for="exampleInputPassword1">{{__('messages.Offer details en')}}</label>
-                <input type="text" class="form-control" name="details_en" placeholder="{{__('messages.Offer details en')}}">
+                <input type="text" class="form-control" name="details_en" value="{{$offer -> details_en}}"
+                       placeholder="{{__('messages.Offer details')}}">
                 @error('details_en')
                 <small class="form-text text-danger">{{$message}}</small>
                 @enderror
             </div>
 
-            <button type="submit" class="btn btn-primary">Save Offer</button>
+            <button type="submit" class="btn btn-primary">{{__('messages.save edit offer')}}</button>
         </form>
-    </div>
-</div>
-
 
 
     </div>

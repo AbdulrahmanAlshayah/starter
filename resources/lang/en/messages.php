@@ -26,6 +26,10 @@ return [
     'Offer details en' => 'Offer details english',
     'Offer Name' => 'Offer Name',
     'Offer details' => 'Offer details',
+    "operation" => 'operation',
+    'update' => 'update',
+    'edit your offer' => 'Edit Your Offer',
+    'save edit offer' => 'save edit offer',
 
 
 ];

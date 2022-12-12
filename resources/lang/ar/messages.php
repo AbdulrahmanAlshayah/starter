@@ -26,6 +26,9 @@ return [
     'Offer details en' => 'تفاصيل العرض بالأنجليزي',
     'Offer Name' => 'اسم العرض بالعربي',
     'Offer details' => 'تفاصيل العرض بالعربي',
-
+    "operation" => "العمليات",
+    "update" => 'تحديث',
+    'edit your offer' => 'تعديل العرض',
+    'save edit offer' => 'حفظ التعديل',
 
 ];
