@@ -82,6 +82,7 @@ class CrudController extends Controller
     public function getAllOffers(){
         $offers = ofer::select('id',
             'price',
+            'photo',
             'name_'.LaravelLocalization::getCurrentLocale(). ' as name',
             'details_'.LaravelLocalization::getCurrentLocale(). ' as details')->get();
         return view('offer.all',compact('offers'));
@@ -96,8 +97,18 @@ class CrudController extends Controller
         if (!$offer)
             return redirect()->back();
 
-        $offer = ofer::select('id','name_ar','name_en','details_ar','details_en','price')->find($offer_id);
+        $offer = ofer::select('id','name_ar','name_en','details_ar','details_en','price','photo')->find($offer_id);
         return view('offer.edit',compact('offer'));
+    }
+
+    public function deleteOffer($offer_id){
+        //check if offer id exists
+        $offer = ofer::find($offer_id);   //Offer::where('id',$offer_id)->first();
+
+        if(!$offer)
+            return redirect() -> back() -> with(['error'=>__('messages.offer not exist')]);
+        $offer ->delete();
+        return redirect()->route('offers.all',$offer_id)->with(['success' => __('messages.offer deleted successfully')]);
     }
 
     public function updateOffer(OfferRequest $request,$offer_id){

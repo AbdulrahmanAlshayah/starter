@@ -30,5 +30,8 @@ return [
     "update" => 'تحديث',
     'edit your offer' => 'تعديل العرض',
     'save edit offer' => 'حفظ التعديل',
+    'delete' => 'حذف',
+    'offer not exist' => 'العرض غير موجود',
+    'offer deleted successfully' => 'تم حذف العرض بنجاح',
 
 ];

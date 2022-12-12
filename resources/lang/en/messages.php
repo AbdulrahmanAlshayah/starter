@@ -30,6 +30,10 @@ return [
     'update' => 'update',
     'edit your offer' => 'Edit Your Offer',
     'save edit offer' => 'save edit offer',
+    'delete' => 'delete',
+    'offer not exist' => 'offer not exist',
+    'offer deleted successfully' => 'offer deleted successfully',
+
 
 
 ];
