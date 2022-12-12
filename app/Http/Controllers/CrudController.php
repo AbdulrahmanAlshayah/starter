@@ -4,12 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\OfferRequest;
 use App\Models\ofer;
+use App\Traits\OfferTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use LaravelLocalization;
 
 class CrudController extends Controller
 {
+    use OfferTrait;
+
+
     public function getOffers(){
         //return ofer::select('id','name')->get();
         return ofer::get();
@@ -38,13 +42,7 @@ class CrudController extends Controller
 //            return redirect()->back()->withErrors($validator)->withInput($request->all());
 //        }
 
-
-        //save photo in folder
-        $file_extension = $request -> photo -> getClientOriginalExtension();
-
-        $file_name = time(). '.'.$file_extension;
-        $path = 'images/offers';
-        $request -> photo -> move($path,$file_name);
+        $file_name = $this->saveImage($request -> photo,'images/offers');
 
         ofer::create([
             'photo' => $file_name,
@@ -57,6 +55,8 @@ class CrudController extends Controller
         //return redirect()->to('');
         return redirect()->back()->with(['success' => 'تم إضافة العرض بنجاح']);
     }
+
+
 
 //    protected function getRules(){
 //        return $rules = [
