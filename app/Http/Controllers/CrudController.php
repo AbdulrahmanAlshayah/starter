@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\OfferRequest;
 use App\Models\ofer;
+use App\Models\video;
 use App\Traits\OfferTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -120,6 +121,11 @@ class CrudController extends Controller
 //            'price' => $request->price,
 //        ]);
 
+    }
+
+    public function getVideo(){
+        $video = video::first();
+        return view('video1')->with('video',$video);
     }
 
 }
