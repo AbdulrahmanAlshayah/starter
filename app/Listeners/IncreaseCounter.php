@@ -13,7 +13,7 @@ class IncreaseCounter
      *
      * @return void
      */
-    public function __construct(VideoViewer $event)
+    public function __construct()
     {
         //
     }
@@ -24,8 +24,13 @@ class IncreaseCounter
      * @param  object  $event
      * @return void
      */
-    public function handle($event)
+    public function handle(VideoViewer $event)
     {
-        //
+        $this -> updateViewer($event -> video);
+    }
+
+    function updateViewer($video){
+        $video -> viewers = $video -> viewers + 1;
+        $video ->save();
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Events;
 
+use App\Models\video;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
@@ -19,9 +20,11 @@ class VideoViewer
      *
      * @return void
      */
-    public function __construct()
+
+    public $video;
+    public function __construct(video $video)
     {
-        //
+        $this -> video = $video;
     }
 
     /**

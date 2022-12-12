@@ -11,7 +11,7 @@ class video extends Model
 
     protected $table = "videos";
     protected $fillable = ['name', 'viewers'];
-    public $timestamps = true;
+    public $timestamps = false;
 
 
 }

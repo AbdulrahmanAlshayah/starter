@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\VideoViewer;
 use App\Http\Requests\OfferRequest;
 use App\Models\ofer;
 use App\Models\video;
@@ -125,6 +126,7 @@ class CrudController extends Controller
 
     public function getVideo(){
         $video = video::first();
+        event(new VideoViewer($video));//fire event
         return view('video1')->with('video',$video);
     }
 
