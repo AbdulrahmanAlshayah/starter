@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CrudController;
+use App\Http\Controllers\OfferController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Front\UserController;
 
@@ -42,3 +43,15 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'lo
      Route::get('youtube',[CrudController::class,'getVideo']);
 
 });
+
+####################### Begin ajax routes ###################
+Route::group(['prefix' => 'ajax-offers'],function(){
+    Route::get('create',[OfferController::class,'create']);
+    Route::post('store',[OfferController::class,'store'])->name('ajax.offers.store');
+});
+
+
+
+
+####################### End ajax routes ###################
+
