@@ -1,5 +1,8 @@
 @extends('layouts.app')
 @section('content')
+    <div class="alert alert-success" id="success_msg" style="display: none;">
+        تم الحفظ بنجاح
+    </div>
 <div class="container">
     <div class="flex-center position-ref full-height">
     <div class="content">
@@ -12,7 +15,7 @@
             </div>
         @endif
 
-         <form method="POST" action="" enctype="multipart/form-data">
+         <form method="POST" id="offerForm" action="" enctype="multipart/form-data">
             @csrf
             {{-- <input name="_token" value="{{csrf_token()}}"> --}}
 
@@ -74,22 +77,24 @@
     <script>
         $(document).on('click','#save-offer',function (e){
             e.preventDefault();
-            $.ajax({
-           type:'post',
-            url:"{{route('ajax.offers.store')}}",
-            data:{
-                '_token':"{{csrf_token()}}",//اذا ما حطيت token بيعطيك خطأ 419
-                // 'photo': $("input[name='photo']").val(),
-                'name_ar': $("input[name='name_ar']").val(),
-                'name_en': $("input[name='name_en']").val(),
-                'price': $("input[name='price']").val(),
-                'details_ar': $("input[name='details_ar']").val(),
-                'details_en': $("input[name='details_en']").val(),
-            },
-            success: function (data){
-            },error:function (reject){
 
-            }
+            var formData = new FormData($('#offerForm')[0]);
+
+            $.ajax({
+                type:'post',
+                enctype:'multipart/form-data',
+                url:"{{route('ajax.offers.store')}}",
+                data: formData,
+                processData: false,
+                contentType: false,
+                cache: false,
+                success: function (data){
+                    if (data.status == true){
+                        $('#success_msg').show();
+                    }
+                },error:function (reject){
+
+                }
         });
         });
 
