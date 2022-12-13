@@ -84,6 +84,7 @@
                 type:'post',
                 enctype:'multipart/form-data',
                 url:"{{route('ajax.offers.store')}}",
+                //من شان ترفع اكتر من صورة في دالة اسمها drop zone tools
                 data: formData,
                 processData: false,
                 contentType: false,
