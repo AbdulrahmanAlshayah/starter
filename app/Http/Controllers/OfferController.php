@@ -68,7 +68,42 @@ class OfferController extends Controller
 
     }
 
+    public function editOffer(Request $request){
+//        $data = ofer::findOrFail($offer_id)->get();
+//        return $data;
 
+        $offer = ofer::find($request->offer_id); //search in given table id only
+
+        if (!$offer)
+            return response() -> json([
+            //asisator array
+            'status' => false,
+            'msg' => 'فشل الحفظ برجاء المحاولة مجددا'
+        ]);
+
+        $offer = ofer::select('id','name_ar','name_en','details_ar','details_en','price','photo')->find($request->offer_id);
+        return view('ajaxoffer.edit',compact('offer'));
+    }
+
+    public function updateOffer(Request $request){
+         $offer = ofer::find($request->offer_id);
+
+        if (!$offer)
+            return response() -> json([
+            'status' => false,
+            'msg' => 'هذا العرض غير موجود'
+        ]);
+
+        //update data
+
+
+        $offer->update($request->all());
+
+        return response() -> json([
+            'status' => true,
+            'msg' => 'تم التحديث بنجاح'
+        ]);
+    }
 
 
 
